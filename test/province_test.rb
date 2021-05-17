@@ -24,4 +24,21 @@ class ProvinceTest < Minitest::Test
       assert_equal(@asia.profit, 292);
     end
   end
+
+  describe "No producers" do
+    before do
+      data = {
+        name: "No producers",
+        producers: [],
+        demand: 30,
+        price: 20
+      }
+
+      @noProducers = Province.new(data)
+    end
+
+    it "calculate shortfall" do
+      assert_equal(@noProducers.shortfall, 30);
+    end
+  end
 end
