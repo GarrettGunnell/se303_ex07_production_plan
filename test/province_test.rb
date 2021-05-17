@@ -18,10 +18,17 @@ class ProvinceTest < Minitest::Test
     end
 
     it "can change production" do
-      @asia.producers[0].production = 20;
+      @asia.producers[0].production = 20
 
-      assert_equal(@asia.shortfall, -6);
-      assert_equal(@asia.profit, 292);
+      assert_equal(@asia.shortfall, -6)
+      assert_equal(@asia.profit, 292)
+    end
+
+    it "can have no demand" do
+      @asia.demand = 0
+
+      assert_equal(@asia.shortfall, -25)
+      assert_equal(@asia.profit, 0)
     end
   end
 
@@ -38,11 +45,11 @@ class ProvinceTest < Minitest::Test
     end
 
     it "calculate shortfall" do
-      assert_equal(@noProducers.shortfall, 30);
+      assert_equal(@noProducers.shortfall, 30)
     end
 
     it "calculates profit" do
-      assert_equal(@noProducers.profit, 0);
+      assert_equal(@noProducers.profit, 0)
     end
   end
 end
